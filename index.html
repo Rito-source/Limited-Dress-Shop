@@ -15,26 +15,23 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{min-width:320px;-webkit-text-size-adjust:100%}
-body{margin:0;min-width:320px;font-family:Arial,"Helvetica Neue",sans-serif;color:#fff9ee;overflow-x:hidden;background:#2b173f;}
+body{margin:0;min-width:320px;font-family:Arial,"Helvetica Neue",sans-serif;color:#fff9ee;overflow-x:hidden;background:#2a1840;}
 body::before{content:"";position:fixed;inset:0;z-index:-3;background:
- radial-gradient(circle at 50% -8%, rgba(170,112,213,.58) 0%, rgba(170,112,213,0) 32%),
- radial-gradient(circle at 50% 18%, rgba(124,73,177,.25) 0%, rgba(124,73,177,0) 42%),
- linear-gradient(180deg,#6f4390 0%, #472460 34%, #2b163f 68%, #1f102f 100%);}
+  linear-gradient(180deg, rgba(52,22,79,.26) 0%, rgba(40,19,63,.18) 28%, rgba(33,15,51,.26) 100%),
+  url("assets/shop-bg.png") center top / cover no-repeat;transform:scale(1.02);}
 body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
-  background:radial-gradient(circle at 50% 0%, rgba(255,255,255,.10), rgba(255,255,255,0) 36%);
-  opacity:.9;}
+  background:linear-gradient(180deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,0) 20%, rgba(39,16,61,.16) 100%);
+  opacity:1;}
 
-/* 闪烁星星背景：使用真实星形字符而非小点 */
-.starfield{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;user-select:none}
-.starfield .star{position:absolute;display:block;color:#ffe8ad;line-height:1;
-  font-size:var(--size,12px);opacity:var(--alpha,.58);
-  text-shadow:0 0 7px rgba(255,233,171,.55),0 0 18px rgba(255,220,140,.22);
-  animation:star-twinkle var(--time,6.4s) ease-in-out infinite; transform-origin:center;}
-.starfield .star.soft{color:#fff6da;text-shadow:0 0 10px rgba(255,247,217,.55),0 0 22px rgba(255,236,176,.20)}
-.starfield .star.tiny{font-size:var(--size,8px);opacity:var(--alpha,.34)}
-@keyframes star-twinkle{0%,100%{opacity:calc(var(--alpha,.58) * .35);transform:scale(.72) rotate(0deg)}25%{opacity:var(--alpha,.58);transform:scale(1.0) rotate(8deg)}50%{opacity:calc(var(--alpha,.58) * .62);transform:scale(.84) rotate(-8deg)}75%{opacity:calc(var(--alpha,.58) * .95);transform:scale(1.18) rotate(12deg)}}
+/* 使用上传背景图，本版关闭额外星星层，避免与背景装饰冲突 */
+.starfield{display:none}
 .page{z-index:1}
 @media(prefers-reduced-motion:reduce){.starfield .star{animation:none}}
+@media (max-width: 480px){
+  body::before{background:
+    linear-gradient(180deg, rgba(52,22,79,.22) 0%, rgba(40,19,63,.14) 28%, rgba(33,15,51,.22) 100%),
+    url("assets/shop-bg.png") center top / cover no-repeat;}
+}
 
 a{-webkit-tap-highlight-color:transparent}
 img{max-width:100%;display:block}
